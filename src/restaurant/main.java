@@ -1,20 +1,25 @@
 package restaurant;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class main {
-    public static void main(String[] args){
-         MenuItem grapes = new MenuItem(25.00, "Quacks like a duck", Category.APPETIZER);
+    public static void main(String[] args) {
+        MenuItem grapes = new MenuItem("Grapes", 25.00, "Quacks like a duck", Category.APPETIZER);
+        MenuItem cassadilla = new MenuItem("Quesadilla", 3.00, "Dang cassadilla", Category.MAINCOURSE);
+        MenuItem apple = new MenuItem("Apple", 0.25, "Granny's Finest", Category.DESSERT);
+        MenuItem yogurt = new MenuItem("Yogurt", 3.47, "Full of bacteria", Category.DESSERT);
 
-         System.out.println(grapes.getCategory());
+        Menu testMenu = new Menu();
+        testMenu.addMenuItem(grapes);
+        testMenu.addMenuItem(cassadilla);
+        testMenu.addMenuItem(apple);
+        testMenu.addMenuItem(yogurt);
 
-         Menu testMenu = new Menu();
-
-
-         ArrayList<MenuItem> testItems = new ArrayList<MenuItem>();
-         testItems.add(grapes);
-        Menu testMenu2 = new Menu(testItems);
-         System.out.println(testMenu.getLastUpdated());
-        System.out.println(testMenu2.getLastUpdated());
+        testMenu.printFullMenu();
+        testMenu.getMenuItem(grapes);
+        testMenu.removeMenuItem(apple);
+        System.out.println("***************************************************");
+        testMenu.printFullMenu();
     }
 }
